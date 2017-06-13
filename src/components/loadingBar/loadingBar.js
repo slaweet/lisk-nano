@@ -11,6 +11,7 @@ app.component('loadingBar', {
         if (index === -1) {
           this.loaders.push(name);
         }
+        console.log('showLoadingBar', this.loaders);
       });
 
       $rootScope.$on('hideLoadingBar', (event, name) => {
@@ -18,6 +19,7 @@ app.component('loadingBar', {
         if (index > -1) {
           this.loaders.splice(index, 1);
         }
+        console.log('hideLoadingBar', this.loaders);
       });
     }
   },
