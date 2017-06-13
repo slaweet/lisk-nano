@@ -99,6 +99,7 @@ app.component('login', {
       const passphrase = this.$location.search().passphrase || this.$cookies.get('passphrase');
       if (passphrase) {
         this.input_passphrase = passphrase;
+        this.passConfirmSubmit();
       }
     }
   },
