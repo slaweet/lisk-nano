@@ -8,7 +8,7 @@ import lisk from 'lisk-js';
  * @module app
  * @submodule Peers
  */
-app.factory('Peers', ($timeout, $cookies, $location, $q, $rootScope, dialog) => {
+app.factory('Peers', ($timeout, $cookies, $location, $q, $rootScope, dialog, improveErrorMessagesFilter) => {
   /**
    * The Peers factory constructor class
    *
@@ -88,6 +88,7 @@ app.factory('Peers', ($timeout, $cookies, $location, $q, $rootScope, dialog) => 
     sendRequestPromise(api, urlParams) {
       const deferred = $q.defer();
       this.active.sendRequest(api, urlParams, (data) => {
+        data = improveErrorMessagesFilter(data);
         if (data.success) {
           return deferred.resolve(data);
         }
