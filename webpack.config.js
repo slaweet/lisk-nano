@@ -40,7 +40,10 @@ module.exports = (env) => {
       historyApiFallback: true,
     },
     plugins: [
-      new HardSourceWebpackPlugin(),
+      new HardSourceWebpackPlugin({
+        cacheDirectory: '/tmp/node_modules/.cache/hard-source/[confighash]',
+        recordsPath: '/tmp/node_modules/.cache/hard-source/[confighash]/records.json',
+      }),
       new StyleLintPlugin({
         context: `${path.resolve(__dirname, 'src')}/`,
         files: '**/*.css',
