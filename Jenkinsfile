@@ -46,6 +46,7 @@ node('lisk-nano-01'){
       try {
         sh '''#!/bin/bash
         npm config set cache-min 9999999
+        npm config set prefer-offline true
         npm install
         # Build nano
         cd $WORKSPACE
