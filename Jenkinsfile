@@ -45,6 +45,7 @@ node('lisk-nano-01'){
     stage ('Install npm dependencies') {
       try {
         sh '''#!/bin/bash
+        npm config set cache-min 9999999
         npm install
         # Build nano
         cd $WORKSPACE
