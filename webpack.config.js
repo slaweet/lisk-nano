@@ -5,6 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { NamedModulesPlugin } = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 /* eslint-enable */
 
 const reactToolboxVariables = {
@@ -39,6 +40,7 @@ module.exports = (env) => {
       historyApiFallback: true,
     },
     plugins: [
+      new HardSourceWebpackPlugin(),
       new StyleLintPlugin({
         context: `${path.resolve(__dirname, 'src')}/`,
         files: '**/*.css',
