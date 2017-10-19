@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -36,6 +36,10 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'styles.css',
       allChunks: true,
+    }),
+    new webpack.DllReferencePlugin({
+      context: process.cwd(),
+      manifest: require(join(__dirname, 'dll', 'ReactStuff.json'))
     }),
   ],
 };
