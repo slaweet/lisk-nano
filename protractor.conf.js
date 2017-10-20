@@ -24,5 +24,7 @@ exports.config = {
     screenshotFolder: 'e2e-test-screenshots',
     baseURL: 'http://localhost:8080/',
     liskCoreURL: 'http://localhost:4000/',
+    windowWidth: '1600',
+    windowHeight: '1000',
   },
 };
