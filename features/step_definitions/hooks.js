@@ -36,11 +36,12 @@ defineSupportCode(({ Before, After }) => {
   Before((scenario, callback) => {
     browser.ignoreSynchronization = true;
     browser.driver.manage().window().setSize(1000, 625);
-    browser.get(browser.params.baseURL);
-    localStorage.clear();
-    localStorage.setItem('address', browser.params.liskCoreURL);
-    localStorage.setItem('network', 2);
-    callback();
+    browser.get(browser.params.baseURL).then(() => {
+      localStorage.clear();
+      localStorage.setItem('address', browser.params.liskCoreURL);
+      localStorage.setItem('network', 2);
+      callback();
+    });
   });
 
   After((scenario, callback) => {
