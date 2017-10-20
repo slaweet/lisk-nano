@@ -35,7 +35,7 @@ function takeScreenshot(screnarioSlug, callback) {
 defineSupportCode(({ Before, After }) => {
   Before((scenario, callback) => {
     browser.ignoreSynchronization = true;
-    browser.driver.manage().window().setSize(1000, 1000);
+    browser.driver.manage().window().setSize(1000, 625);
     browser.get(browser.params.baseURL);
     localStorage.clear();
     localStorage.setItem('address', browser.params.liskCoreURL);
