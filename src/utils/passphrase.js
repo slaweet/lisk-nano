@@ -1,7 +1,5 @@
 import crypto from 'crypto';
-
-if (global._bitcore) delete global._bitcore;
-const mnemonic = require('bitcore-mnemonic');
+import bip39 from 'bip39';
 
 /**
  * Generates an array of 16 members equal to given value
@@ -79,7 +77,7 @@ export const generateSeed = ({ byte, seed, percentage, step } = init(), rand = M
    * @param {string[]} seed - An array of 16 hex numbers in string format
    * @returns {string} The generated passphrase
    */
-export const generatePassphrase = ({ seed }) => (new mnemonic(new Buffer(seed.join(''), 'hex'))).toString();
+export const generatePassphrase = ({ seed }) => bip39.entropyToMnemonic(seed.join(''));
 
 /**
    * Checks if passphrase is valid using mnemonic
@@ -89,5 +87,5 @@ export const generatePassphrase = ({ seed }) => (new mnemonic(new Buffer(seed.jo
    */
 export const isValidPassphrase = (passphrase) => {
   const normalizedValue = passphrase.replace(/ +/g, ' ').trim().toLowerCase();
-  return normalizedValue.split(' ').length >= 12 && mnemonic.isValid(normalizedValue);
+  return normalizedValue.split(' ').length >= 12 && bip39.validateMnemonic(normalizedValue);
 };

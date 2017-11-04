@@ -1,4 +1,4 @@
-import mnemonic from 'bitcore-mnemonic';
+import bip39 from 'bip39';
 
 const MAX_WORD_LENGTH = 8;
 
@@ -29,10 +29,10 @@ export const levenshteinDistance = (word1, word2) => {
  * @returns {bool}
  */
 export const inDictionary = word =>
-  mnemonic.Words.ENGLISH.indexOf(word) !== -1;
+  bip39.wordlists.EN.indexOf(word) !== -1;
 
 export const reducedDictByWordLength =
-  mnemonic.Words.ENGLISH.reduce((acc, el) => {
+  bip39.wordlists.EN.reduce((acc, el) => {
     const len = el.length;
     if (acc[len]) {
       acc[len].push(el);

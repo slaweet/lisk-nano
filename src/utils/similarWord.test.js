@@ -1,4 +1,4 @@
-import mnemonic from 'bitcore-mnemonic';
+import bip39 from 'bip39';
 import { expect } from 'chai';
 import {
   findSimilarWord,
@@ -37,7 +37,7 @@ describe('Similar word', () => {
 
   describe('getWordsFromDictByLength', () => {
     it('should return array with dictionary words mathed by length, length - 1 and length + 1', () => {
-      const expectedWordLenght = mnemonic.Words.ENGLISH
+      const expectedWordLenght = bip39.wordlists.EN
         .filter(el => el.length === 4 || el.length === 3 || el.length === 5).length;
       expect(getWordsFromDictByLength(4).length).to.be.equal(expectedWordLenght);
     });

@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "bignumber.js": "4.0.4",
-    "bitcore-mnemonic": "1.2.5",
+    "bip39": "2.4.0",
     "copy-to-clipboard": "3.0.8",
     "electron-localshortcut": "^2.0.2",
     "flexboxgrid": "=6.3.1",
