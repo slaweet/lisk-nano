@@ -38,7 +38,7 @@
     "no-underscore-dangle": "off",
     "import/no-extraneous-dependencies": ["error", {
       devDependencies: [
-        "./src/**/*.test.js",
+        "./**/*.test.js",
         "./features/*/*.js",
         "./src/**/stories.js",
         "./src/tests.js",

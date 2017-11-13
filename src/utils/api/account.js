@@ -3,7 +3,7 @@ import { requestToActivePeer } from './peers';
 
 export const getAccount = (activePeer, address) =>
   new Promise((resolve, reject) => {
-    activePeer.getAccount(address, (data) => {
+    activePeer.sendRequest('accounts', { address }, (data) => {
       if (data.success) {
         resolve(data.account);
       } else if (!data.success && data.error === 'Account not found') {

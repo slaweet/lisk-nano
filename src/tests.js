@@ -15,5 +15,7 @@ chai.use(chaiAsPromised);
 sinonStubPromise(sinon);
 
 // load all tests into one bundle
-const testsContext = require.context('.', true, /\.test\.js$/);
+const unitTestsContext = require.context('.', true, /\.test\.js$/);
+unitTestsContext.keys().forEach(unitTestsContext);
+const testsContext = require.context('../integration-tests', true, /\.test\.js$/);
 testsContext.keys().forEach(testsContext);
